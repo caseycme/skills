@@ -1,0 +1,43 @@
+---
+alwaysApply: true
+---
+
+# Repository Context
+
+## This Repository (app-pro-ui)
+Main Next.js application for the SEO platform.
+
+## Related Repositories
+
+### pattern-library
+- **Purpose**: Shared component library and design system based on Material UI
+- **Usage**: Import components from this repo for all UI elements
+- **Rule**: Use pattern-library components only, no custom CSS/inline styles
+- **Description**: A component library and set of established patterns to guide engineers in building consistent customer tools
+
+### app-api
+- **Purpose**: Frontend API for Application Engineering
+- **Usage**: Backend API services and data layer
+- **Description**: The main API service that provides data and business logic for frontend applications
+- **Tech Stack**: Node.js, TypeScript, Pylon framework
+
+### maui
+- **Purpose**: Moz Pro unified UI framework (legacy)
+- **Usage**: Legacy UI components and patterns (being phased out)
+- **Description**: The previous unified UI framework for Moz Pro, now being replaced by app-pro-ui
+- **Tech Stack**: React, Material UI v4, Webpack
+
+### moz-ui
+- **Purpose**: Next.js powered frontend for Moz account management (sister app to app-pro-ui)
+- **Usage**: Account settings, checkout, subscriptions, billing
+- **Description**: The Next.js frontend for Moz account management and billing features
+- **Tech Stack**: Next.js, React 18, TypeScript
+- **Relationship**: Sister application to app-pro-ui - maintain consistency in patterns, tools, and updates
+
+## Integration Guidelines
+- Always reference pattern-library for UI components
+- Use app-api for backend data services
+- Follow established naming conventions across repos
+- Maintain consistency with shared design tokens
+- Coordinate patterns, tools, and updates between app-pro-ui and moz-ui
+- Consider cross-app consistency when making architectural decisions

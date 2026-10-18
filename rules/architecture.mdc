@@ -1,0 +1,53 @@
+---
+alwaysApply: true
+---
+
+# Architecture Rules
+
+## Naming & Paths
+Follow established file/folder naming conventions:
+- Use kebab-case for directories (`domain-overview`, `keyword-research`)
+- Use PascalCase for component files (`BrandAuthority.tsx`, `DomainAuthority.tsx`)
+- Use camelCase for hook files (`useKeywordTopics.ts`, `useDomainOverview.ts`)
+- Use barrel exports (`index.ts`) for component directories
+
+## Design System
+Use pattern-library repo components only.
+
+No inline styles/custom CSS.
+
+## State Management
+Use approved hooks/store/query; no globals:
+- Use React Query (`@tanstack/react-query`) for server state
+- Use `useState`/`useReducer` for local component state
+- Use React Hook Form for form state
+- Use Next.js `useSearchParams`/`useRouter` for URL state
+
+## Routing
+Follow existing route shapes/loaders:
+- Use Next.js App Router structure (`app/(default)/[feature]/page.tsx`)
+- Use `_module/` directories for feature-specific components
+- Use dynamic routes with proper TypeScript interfaces
+- Follow established route patterns from existing features
+
+## Accessibility
+Follow DS a11y patterns (roles, focus order, keyboard).
+
+## i18n/Formatting
+Always use shared utilities.
+
+## Type Safety
+Validate DTOs/schemas at boundaries.
+
+## Flags & Auth
+Verify ON/OFF states with feature flags.
+
+## Analytics
+Use shared event utilities with correct naming.
+
+## Import Patterns
+Follow established import conventions:
+- Use barrel exports: `import { Button, Card } from "pattern-library"`
+- Use path aliases: `import { Component } from "@/components"`
+- Import from public surfaces only, not internal paths
+- Group imports: external libraries, then internal modules

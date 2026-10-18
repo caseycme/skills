@@ -1,0 +1,56 @@
+---
+alwaysApply: true
+---
+
+# Global Rules
+
+## Conventions
+Working code that breaks conventions must be rejected.
+
+## Plan Before Build
+Show a Plan Block before generating code.
+
+## Model Citation
+Always cite repo paths/components used as examples.
+
+## No Silent Deviations
+Propose options if no precedent exists.
+
+## Refuse Unknowns
+If APIs, flags, or DS components are unclear, stop and ask.
+- Check `util/auth/feature-flags.ts` for feature flag patterns
+- Check `util/tracking/constants.ts` for analytics event naming
+- Check `pattern-library` for available DS components
+
+## Production-Only Code
+No TODOs, mocks (outside unit tests), console.log, inline CSS, or temporary shims.
+
+## After Each Prompt
+Clean imports, remove unused exports/code, confirm type safety.
+
+No stray WIP code left in the repo.
+
+## Formatting pipeline (before commit or “done”)
+
+**Never commit or hand off work without passing Prettier.** Lefthook pre-commit runs
+`prettier --check` on **staged** `*.{ts,js,md,yml}` files; CI runs `npm run format`
+on the **whole repo**. Agents often fail on `.md` / `.cursor/**` files they edited.
+
+**Required sequence (run in the repo root):**
+
+```bash
+npm run format-fix
+npm run format
+npm run lint
+npm run ts-build
+```
+
+- **`format-fix` first** — do not skip straight to `format` (check-only) and commit.
+- Re-stage any files Prettier rewrote, then commit.
+- If the pre-commit hook fails on format: run `format-fix`, re-stage, create a **new**
+  commit (do not amend unless user rules allow).
+
+See `.cursor/templates/task_template.md` §8 “Pre-commit pipeline” for full detail.
+
+## Follow-up Prompts
+All corrections, edits, or refinements must also follow these rules.

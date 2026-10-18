@@ -1,0 +1,18 @@
+---
+alwaysApply: false
+---
+
+# Verification Requirements
+
+## Chrome MCP Server Checks
+Use Chrome MCP server to check:
+
+- Route loads without errors.
+- Console/network logs are clean.
+- Screenshots/diffs vs legacy (spacing/layout may differ, structure must match).
+- Axe a11y passes with no serious violations.
+- Feature flags behave correctly ON/OFF (check `util/auth/feature-flags.ts` patterns).
+- Analytics events fire correctly (check `util/tracking/constants.ts` naming).
+
+## Manual Verification Fallback
+If MCP is unavailable, attach manual screenshots + console/network logs.
